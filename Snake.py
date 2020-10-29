@@ -4,6 +4,8 @@ import random
 from random import randrange
 from freegames import square, vector
 
+# Se crea un color random para la comida y la serpiente (siempre diferentes entre sí)
+
 coloursb = ["navy", "purple", "blue", "darkgreen", "chocolate"]
 coloursf = ["gold", "orange", "skyblue", "yellow", "lightgreen"]
 rb=random.choice(coloursb)
@@ -22,10 +24,12 @@ def inside(head):
     "Return True if head inside boundaries."
     return -200 < head.x < 190 and -200 < head.y < 190
 
+# Se creó una función para indicar lo límites de la comida
 def insideF():
     "Return True if head inside boundaries."
     return -200 < food.x < 190 and -200 < food.y < 190
 
+#Se creó una funcion para mover a la comida constantemente pero siempre dentro de los limites del tablero
 def moveFood():
     ranX = randrange(-10, 11, 10)
     ranY = randrange(-10, 11, 10)
@@ -41,7 +45,7 @@ def moveFood():
     if ranY == 10:
         if food.y < 190:
             food.y += ranY
-    
+    #Se le dio mas velocidad a la comida
     ontimer(moveFood, 450)
 
     if not insideF():
@@ -69,7 +73,7 @@ def move():
 
     clear()
 
-
+    #Cada vez que se corre el juego se les asigna un color random a la comida y a la serpiente pero diferentes entre si.
     for body in snake:
         square(body.x, body.y, 9, rb)
 
