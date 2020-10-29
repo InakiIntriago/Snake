@@ -4,6 +4,11 @@ import random
 from random import randrange
 from freegames import square, vector
 
+coloursb = ["navy", "purple", "blue", "darkgreen", "chocolate"]
+coloursf = ["gold", "orange", "skyblue", "yellow", "lightgreen"]
+rb=random.choice(coloursb)
+rf=random.choice(coloursf)
+
 food = vector(0, 0)
 snake = [vector(10, 0)]
 aim = vector(0, -10)
@@ -37,13 +42,11 @@ def moveFood():
         if food.y < 190:
             food.y += ranY
     
-    ontimer(moveFood, 100)
+    ontimer(moveFood, 450)
 
     if not insideF():
         square(food.x, food.y, 9, 'red')
         update()
-        exit()
-
 
 def move():
     "Move snake forward one segment."
@@ -65,11 +68,6 @@ def move():
         snake.pop(0)
 
     clear()
-
-    coloursb = ["navy", "purple", "blue", "darkgreen", "chocolate"]
-    coloursf = ["gold", "orange", "skyblue", "yellow", "lightgreen"]
-    rb=random.choice(coloursb)
-    rf=random.choice(coloursf)
 
 
     for body in snake:
